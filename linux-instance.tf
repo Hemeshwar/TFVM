@@ -17,14 +17,13 @@ resource "azurerm_linux_virtual_machine" "terra-demo" {
   location            = azurerm_resource_group.terra-demo.location
   size                = "Standard_D2_v2"
   admin_username      = "hemesh"
+  admin_password      = "Hemeshwar@2702"
+  disable_password_authentication = false
   network_interface_ids = [
     azurerm_network_interface.terra-demo.id,
   ]
 
-  admin_ssh_key {
-    username   = "hemesh"
-    public_key = file("~/.ssh/id_rsa.pub")
-  }
+  
 
   os_disk {
     caching              = "ReadWrite"
